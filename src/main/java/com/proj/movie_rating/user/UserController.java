@@ -1,4 +1,4 @@
-package com.proj.movie_rating.movie;
+package com.proj.movie_rating.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/movie")
-public class MovieController {
+@RequestMapping(path = "api/v1/user")
+public class UserController {
 
-    private final MovieService movieService;
+    private final UserService userService;
 
     @Autowired
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
-    public List<Movie> getMovies(){
-        return movieService.getMovies();
+    public List<User> getUsers(){
+        return userService.getUsers();
     }
 }

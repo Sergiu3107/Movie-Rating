@@ -1,19 +1,35 @@
 package com.proj.movie_rating.movie;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Movie {
 
-    private int id;
+    @Id
+    @SequenceGenerator(
+            name = "movie_sequence",
+            sequenceName = "movie_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "movie_sequence"
+    )
+    private Integer id;
     private String title;
-    private int releaseYear;
+    private Integer releaseYear;
     private String genre;
     private String director;
+    @Column(length = 1000)
     private String description;
+    @Column(length = 1000)
     private String image;
 
     public Movie() {
     }
 
-    public Movie(int id, String title, int releaseYear, String genre, String director, String description, String image) {
+    public Movie(Integer id, String title, Integer releaseYear, String genre, String director, String description, String image) {
         this.id = id;
         this.title = title;
         this.releaseYear = releaseYear;
@@ -23,7 +39,7 @@ public class Movie {
         this.image = image;
     }
 
-    public Movie(String title, int releaseYear, String genre, String director, String description, String image) {
+    public Movie(String title, Integer releaseYear, String genre, String director, String description, String image) {
         this.title = title;
         this.releaseYear = releaseYear;
         this.genre = genre;
@@ -32,11 +48,11 @@ public class Movie {
         this.image = image;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,11 +64,11 @@ public class Movie {
         this.title = title;
     }
 
-    public int getReleaseYear() {
+    public Integer getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    public void setReleaseYear(Integer releaseYear) {
         this.releaseYear = releaseYear;
     }
 

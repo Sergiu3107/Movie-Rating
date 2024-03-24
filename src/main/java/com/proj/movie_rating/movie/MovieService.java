@@ -1,19 +1,20 @@
 package com.proj.movie_rating.movie;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+import java.util.List;
+
+@Service
 public class MovieService {
 
-    public Movie getMovie(){
-        return new Movie(
-                1,
-                "movie1",
-                2000,
-                "ok",
-                "ok",
-                "ok",
-                "ok"
-        );
+    private final MovieRepository movieRepository;
+
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
+    public List<Movie> getMovies(){
+        return movieRepository.findAll();
     }
 }

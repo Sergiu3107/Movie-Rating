@@ -1,6 +1,9 @@
 package com.proj.movie_rating.user;
 
+import com.proj.movie_rating.review.Review;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -22,6 +25,9 @@ public class User {
     private String password;
     private String email;
     private String status;
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
 
     public User() {
     }

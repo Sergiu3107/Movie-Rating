@@ -1,14 +1,12 @@
 package com.proj.movie_rating.movie;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
-@RequestMapping(path = "api/v1/movie")
+@RequestMapping(path = "/movie")
 public class MovieController {
 
     private final MovieService movieService;
@@ -18,8 +16,24 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @GetMapping
-    public List<Movie> getMovies(){
-        return movieService.getMovies();
+    @GetMapping("/show/all")
+    public List<Movie> showAllMovies(){
+        return movieService.getAllMovies();
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public boolean removeMovie(@PathVariable("id") Integer id){
+        return movieService.deleteAMovie(id);
+    }
+
+    @PostMapping("/add")
+    public void addMovie(@RequestBody Movie movie){
+        movieService.postMovie(movie);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updateMovie(@PathVariable("id") Integer id,
+                            @RequestBody Movie movie){
+        movieService.putMovie(id, movie);
     }
 }

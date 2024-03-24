@@ -1,6 +1,9 @@
 package com.proj.movie_rating.movie;
 
+import com.proj.movie_rating.review.Review;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -19,6 +22,7 @@ public class Movie {
     private Integer id;
     private String title;
     private Integer releaseYear;
+    private Float rating;
     private String genre;
     private String director;
     @Column(length = 1000)
@@ -26,22 +30,27 @@ public class Movie {
     @Column(length = 1000)
     private String image;
 
+    @OneToMany(mappedBy = "movie")
+    private List<Review> reviews;
+
     public Movie() {
     }
 
-    public Movie(Integer id, String title, Integer releaseYear, String genre, String director, String description, String image) {
+    public Movie(Integer id, String title, Integer releaseYear, Float rating, String genre, String director, String description, String image) {
         this.id = id;
         this.title = title;
         this.releaseYear = releaseYear;
+        this.rating = rating;
         this.genre = genre;
         this.director = director;
         this.description = description;
         this.image = image;
     }
 
-    public Movie(String title, Integer releaseYear, String genre, String director, String description, String image) {
+    public Movie(String title, Integer releaseYear, Float rating, String genre, String director, String description, String image) {
         this.title = title;
         this.releaseYear = releaseYear;
+        this.rating = rating;
         this.genre = genre;
         this.director = director;
         this.description = description;
@@ -104,6 +113,14 @@ public class Movie {
         this.image = image;
     }
 
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -116,4 +133,6 @@ public class Movie {
                 ", image='" + image + '\'' +
                 '}';
     }
+
+
 }

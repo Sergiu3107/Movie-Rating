@@ -9,12 +9,13 @@ import java.util.List;
 @Configuration
 public class MovieConfig {
 
-    @Bean
+    @Bean("movieBean")
     CommandLineRunner commandLineRunner(MovieRepository repository) {
         return args -> {
             Movie oppenheimer = new Movie(
                     "Oppenheimer",
                     2023,
+                    4.1f,
                     "Biography",
                     "Christopher Nolan",
                     "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations",
@@ -24,6 +25,7 @@ public class MovieConfig {
             Movie barbie = new Movie(
                     "Barbie: Dreamland Adventure",
                     2024,
+                    3.2f,
                     "Animation",
                     "Jennifer Lee",
                     "Follow Barbie on her magical journey through Dreamland as she encounters new friends and overcomes challenges to save the kingdom from an evil sorceress.",
@@ -33,6 +35,7 @@ public class MovieConfig {
             Movie superMarioBros = new Movie(
                     "Super Mario: Mushroom Kingdom Heroes",
                     2023,
+                    4.2f,
                     "Adventure",
                     "Brad Bird",
                     "Join Mario and his friends as they embark on a thrilling adventure to rescue Princess Peach from the clutches of Bowser and save the Mushroom Kingdom from chaos.",

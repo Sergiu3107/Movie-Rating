@@ -1,5 +1,7 @@
-package com.proj.movie_rating.review;
+package com.proj.movie_rating.service;
 
+import com.proj.movie_rating.model.Review;
+import com.proj.movie_rating.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

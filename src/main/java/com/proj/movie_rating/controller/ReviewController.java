@@ -1,5 +1,7 @@
-package com.proj.movie_rating.review;
+package com.proj.movie_rating.controller;
 
+import com.proj.movie_rating.model.Review;
+import com.proj.movie_rating.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

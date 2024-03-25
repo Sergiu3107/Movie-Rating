@@ -1,5 +1,7 @@
-package com.proj.movie_rating.movie;
+package com.proj.movie_rating.controller;
 
+import com.proj.movie_rating.model.Movie;
+import com.proj.movie_rating.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

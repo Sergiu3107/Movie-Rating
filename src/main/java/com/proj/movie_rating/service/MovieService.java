@@ -1,11 +1,10 @@
-package com.proj.movie_rating.movie;
+package com.proj.movie_rating.service;
 
-import org.springframework.stereotype.Component;
+import com.proj.movie_rating.model.Movie;
+import com.proj.movie_rating.repository.MovieRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Connection to the database's table: Movie

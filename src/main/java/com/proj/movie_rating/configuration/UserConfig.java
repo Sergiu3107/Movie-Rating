@@ -1,5 +1,7 @@
-package com.proj.movie_rating.user;
+package com.proj.movie_rating.configuration;
 
+import com.proj.movie_rating.model.User;
+import com.proj.movie_rating.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

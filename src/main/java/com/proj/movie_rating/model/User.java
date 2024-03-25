@@ -1,6 +1,6 @@
-package com.proj.movie_rating.user;
+package com.proj.movie_rating.model;
 
-import com.proj.movie_rating.review.Review;
+import com.proj.movie_rating.model.Review;
 import jakarta.persistence.*;
 
 import java.util.List;

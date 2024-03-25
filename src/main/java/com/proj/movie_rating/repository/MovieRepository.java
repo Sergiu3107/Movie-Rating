@@ -1,6 +1,6 @@
-package com.proj.movie_rating.movie;
+package com.proj.movie_rating.repository;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
+import com.proj.movie_rating.model.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

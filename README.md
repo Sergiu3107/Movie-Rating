@@ -15,7 +15,7 @@ Admin can delete any user review.
 - **Movies :** movie overview with basic information and average rating
 - **Reviews :** comment and rating provided by user on a movie
 
-![](D:\Downloads\Movie_Rating_DB.png)
+![](C:\Users\Sergiu\IdeaProjects\Movie-Rating\src\main\resources\images\Movie_Rating_DB.png)
 
 #### Relationships
 

@@ -4,6 +4,10 @@ import com.proj.movie_rating.movie.Movie;
 import com.proj.movie_rating.user.User;
 import jakarta.persistence.*;
 
+/**
+ * Review Table
+ * Comment provided by a user on a movie
+ */
 @Entity
 @Table
 public class Review {

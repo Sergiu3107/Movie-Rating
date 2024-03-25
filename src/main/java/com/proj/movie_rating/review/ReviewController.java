@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/review")
+@RequestMapping(path = "/review")
 public class ReviewController {
 
     private final ReviewService reviewService;
@@ -18,7 +18,11 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    @GetMapping
+    /**
+     * HTTP method: GET, for getting all the reviews
+     * @return a list of reviews
+     */
+    @GetMapping("/show/all")
     public List<Review> getReviews(){
         return reviewService.getReviews();
     }

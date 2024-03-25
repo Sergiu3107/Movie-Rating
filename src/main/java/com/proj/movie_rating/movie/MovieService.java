@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Connection to the database's table: Movie
+ */
 @Service
 public class MovieService {
 
@@ -16,23 +19,41 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
+    /**
+     * Provide a list of all the movies
+     * @return list of movies
+     */
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
     }
 
+    /**
+     * Delete the movie by id, if it exists
+     * @param id
+     * @return true if movie with id is available, else false
+     */
     public boolean deleteAMovie(Integer id){
         if(movieRepository.existsById(id)) {
-            System.out.println("Deleted");
             movieRepository.deleteById(id);
             return true;
         }
         return false;
     }
 
+    /**
+     * Insert a new movie
+     * @param movie
+     */
     public void postMovie(Movie movie) {
         movieRepository.save(movie);
     }
 
+    /**
+     * Modify the movie with a certain id, by releaseYear and rating, if it exists
+     * @param id
+     * @param movie
+     * @return
+     */
     public boolean putMovie(Integer id, Movie movie) {
         if(movieRepository.existsById(id)) {
             Movie current =  movieRepository.findById(id).get();

@@ -4,6 +4,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Connection to the database's table: User
+ */
 @Service
 public class UserService {
 
@@ -13,6 +16,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Provide a list of all the users
+     * @return list of users
+     */
     public List<User> getUsers(){
         return userRepository.findAll();
     }

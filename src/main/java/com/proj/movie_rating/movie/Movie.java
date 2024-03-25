@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+/**
+ * Movie Table
+ */
 @Entity
 @Table
 public class Movie {

@@ -5,6 +5,11 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+/**
+ * User Table
+ * Status : regular - can add and delete its own review
+ *          admin   - can add and delete anybody's reviews
+ */
 @Entity
 @Table
 public class User {

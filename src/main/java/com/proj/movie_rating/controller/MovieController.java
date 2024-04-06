@@ -27,6 +27,11 @@ public class MovieController {
         return movieService.getAllMovies();
     }
 
+    @GetMapping("/show/{id}")
+    public  Movie showMovie(@PathVariable("id") int id){
+        return movieService.getMovie(id);
+    }
+
     /**
      * HTTP method: DETELE, for deleting the movie with a certain id
      * @param id

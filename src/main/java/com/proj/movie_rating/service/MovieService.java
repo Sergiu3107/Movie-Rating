@@ -26,6 +26,10 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+    public Movie getMovie(int id){
+        return movieRepository.findById(id).orElse(null);
+    }
+
     /**
      * Delete the movie by id, if it exists
      * @param id

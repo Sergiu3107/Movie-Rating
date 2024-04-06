@@ -38,17 +38,17 @@ public class Review {
     public Review() {
     }
 
-    public Review(Integer user_id, Integer movie_id, Float rating, String review) {
-//        this.user_id = user_id;
-//        this.movie_id = movie_id;
+    public Review(User user, Movie movie, Float rating, String review) {
+        this.user = user;
+        this.movie = movie;
         this.rating = rating;
         this.review = review;
     }
 
-    public Review(Integer id, Integer user_id, Integer movie_id, Float rating, String review) {
+    public Review(Integer id, User user, Movie movie, Float rating, String review) {
         this.id = id;
-//        this.user_id = user_id;
-//        this.movie_id = movie_id;
+        this.user = user;
+        this.movie = movie;
         this.rating = rating;
         this.review = review;
     }

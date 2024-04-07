@@ -2,6 +2,7 @@ package com.proj.movie_rating.service;
 
 import com.proj.movie_rating.model.User;
 import com.proj.movie_rating.repository.UserRepository;
+import com.proj.movie_rating.service_contract.UserServiceContract;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Connection to the database's table: User
  */
 @Service
-public class UserService {
+public class UserService implements UserServiceContract {
 
     private final UserRepository userRepository;
 

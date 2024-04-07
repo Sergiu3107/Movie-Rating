@@ -2,6 +2,7 @@ package com.proj.movie_rating.service;
 
 import com.proj.movie_rating.model.Movie;
 import com.proj.movie_rating.repository.MovieRepository;
+import com.proj.movie_rating.service_contract.MovieServiceContract;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Connection to the database's table: Movie
  */
 @Service
-public class MovieService {
+public class MovieService implements MovieServiceContract {
 
     private final MovieRepository movieRepository;
 

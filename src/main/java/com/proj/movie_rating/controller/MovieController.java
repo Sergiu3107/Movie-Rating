@@ -2,6 +2,7 @@ package com.proj.movie_rating.controller;
 
 import com.proj.movie_rating.model.Movie;
 import com.proj.movie_rating.service.MovieService;
+import com.proj.movie_rating.service_contract.MovieServiceContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
 @RequestMapping(path = "/movie")
 public class MovieController {
 
-    private final MovieService movieService;
+    private final MovieServiceContract movieService;
 
     @Autowired
     public MovieController(MovieService movieService) {

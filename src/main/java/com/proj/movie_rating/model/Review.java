@@ -22,8 +22,6 @@ public class Review {
     )
 
     private Integer id;
-//    private Integer user_id;
-//    private Integer movie_id;
     private Float rating;
     @Column(length = 1000)
     private String review;

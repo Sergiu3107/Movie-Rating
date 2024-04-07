@@ -2,6 +2,7 @@ package com.proj.movie_rating.controller;
 
 import com.proj.movie_rating.model.Review;
 import com.proj.movie_rating.service.ReviewService;
+import com.proj.movie_rating.service_contract.ReviewServiceContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
 @RequestMapping(path = "/review")
 public class ReviewController {
 
-    private final ReviewService reviewService;
+    private final ReviewServiceContract reviewService;
 
     @Autowired
     public ReviewController(ReviewService reviewService) {

@@ -4,6 +4,7 @@ import com.proj.movie_rating.model.Review;
 import com.proj.movie_rating.model.Review;
 import com.proj.movie_rating.repository.ReviewRepository;
 import com.proj.movie_rating.repository.ReviewRepository;
+import com.proj.movie_rating.service_contract.ReviewServiceContract;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * Connection to the database's table: Review
  */
 @Service
-public class ReviewService {
+public class ReviewService implements ReviewServiceContract {
 
     private final ReviewRepository reviewRepository;
 

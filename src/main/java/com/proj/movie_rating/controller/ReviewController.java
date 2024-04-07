@@ -50,6 +50,7 @@ public class ReviewController {
     @PostMapping("/add")
     public void addReview(@RequestBody Review review){
         reviewService.postReview(review);
+        review.registerObserver(review.getUser());
     }
 
     /**
@@ -61,5 +62,19 @@ public class ReviewController {
     public void updateReview(@PathVariable("id") Integer id,
                             @RequestBody Review review){
         reviewService.putReview(id, review);
+    }
+
+    /**
+     * HTTP method: PUT, for updating the number of likes of the review
+     * @param id
+     */
+    @PutMapping("/like/{id}")
+    public void likeReview(@PathVariable("id") Integer id){
+
+        Review review = reviewService.getReview(id);
+        if(review != null) {
+            review.likeReview();
+            reviewService.putReview(id, review);
+        }
     }
 }

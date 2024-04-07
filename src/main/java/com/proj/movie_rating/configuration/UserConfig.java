@@ -1,6 +1,7 @@
 package com.proj.movie_rating.configuration;
 
 import com.proj.movie_rating.model.User;
+import com.proj.movie_rating.observer.Observer;
 import com.proj.movie_rating.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -41,9 +42,6 @@ public class UserConfig {
                     "admin1@gmail.com",
                     "admin"
             );
-
-
-
             repository.saveAll(List.of(user1, user2, user3, admin1));
 
         };

@@ -1,6 +1,11 @@
 package com.proj.movie_rating.model;
 
+import com.proj.movie_rating.observer.Observable;
+import com.proj.movie_rating.observer.Observer;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Review Table
@@ -8,7 +13,7 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table
-public class Review {
+public class Review implements Observable {
 
     @Id
     @SequenceGenerator(
@@ -25,6 +30,7 @@ public class Review {
     private Float rating;
     @Column(length = 1000)
     private String review;
+    private Integer likes;
 
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
@@ -33,22 +39,28 @@ public class Review {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    // Observers list for Review
+    @Transient
+    private List<Observer> observers = new ArrayList<>();
+
     public Review() {
     }
 
-    public Review(User user, Movie movie, Float rating, String review) {
+    public Review(User user, Movie movie, Float rating, String review, Integer likes) {
         this.user = user;
         this.movie = movie;
         this.rating = rating;
         this.review = review;
+        this.likes = likes;
     }
 
-    public Review(Integer id, User user, Movie movie, Float rating, String review) {
+    public Review(Integer id, User user, Movie movie, Float rating, String review, Integer likes) {
         this.id = id;
         this.user = user;
         this.movie = movie;
         this.rating = rating;
         this.review = review;
+        this.likes = likes;
     }
 
     public Integer getId() {
@@ -58,24 +70,6 @@ public class Review {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    /*
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
-
-    public Integer getMovie_id() {
-        return movie_id;
-    }
-
-    public void setMovie_id(Integer movie_id) {
-        this.movie_id = movie_id;
-    }
-    */
 
     public Float getRating() {
         return rating;
@@ -93,6 +87,30 @@ public class Review {
         this.review = review;
     }
 
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Integer getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
     @Override
     public String toString() {
         return "Review{" +
@@ -102,5 +120,27 @@ public class Review {
                 ", rating=" + rating +
                 ", review='" + review + '\'' +
                 '}';
+    }
+
+    public void likeReview(){
+        this.likes++;
+        notifyObservers();
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
     }
 }

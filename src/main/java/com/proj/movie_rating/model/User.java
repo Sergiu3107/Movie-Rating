@@ -1,6 +1,7 @@
 package com.proj.movie_rating.model;
 
 import com.proj.movie_rating.model.Review;
+import com.proj.movie_rating.observer.Observer;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table
-public class User {
+public class User implements Observer {
 
     @Id
     @SequenceGenerator(
@@ -101,5 +102,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Your review has been liked!");
     }
 }

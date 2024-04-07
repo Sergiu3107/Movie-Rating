@@ -23,33 +23,36 @@ public class ReviewConfig {
             Movie movie3 = movieRepository.findById(3).orElse(null);
 
             User user1 = userRepository.findById(1).orElse(null);
-            System.out.println(user1);
             User user2  = userRepository.findById(2).orElse(null);
 
             Review review1 = new Review(
                     user1,
                     movie1,
                     4.5f,
-                    "nice"
+                    "nice",
+                    20
             );
 
             Review review2 = new Review(
                     user1,
                     movie2,
                     4.0f,
-                    "eh eh nice"
+                    "eh eh nice",
+                    15
             );
 
             Review review3 = new Review(
                     user2,
                     movie3,
                     5.0f,
-                    "best"
+                    "best",
+                    34
             );
 
-
-
             repository.saveAll(List.of(review1, review2, review3));
+//            review1.registerObserver(user1);
+//            review2.registerObserver(user1);
+//            review3.registerObserver(user2);
 
         };
     }

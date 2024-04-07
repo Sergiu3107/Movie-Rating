@@ -1,7 +1,10 @@
 package com.proj.movie_rating.model;
 
+import com.proj.movie_rating.observer.Observable;
+import com.proj.movie_rating.observer.Observer;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -135,6 +138,5 @@ public class Movie {
                 ", image='" + image + '\'' +
                 '}';
     }
-
 
 }

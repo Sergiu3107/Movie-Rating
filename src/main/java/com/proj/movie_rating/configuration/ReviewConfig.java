@@ -50,9 +50,9 @@ public class ReviewConfig {
             );
 
             repository.saveAll(List.of(review1, review2, review3));
-//            review1.registerObserver(user1);
-//            review2.registerObserver(user1);
-//            review3.registerObserver(user2);
+            review1.registerObserver(user1);
+            review2.registerObserver(user1);
+            review3.registerObserver(user2);
 
         };
     }

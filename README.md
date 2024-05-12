@@ -25,9 +25,25 @@ Welcome to the Movie Rating App documentation. This application provides users w
 - **Personalized Recommendations:** Based on the user's previously rated movies, the system suggests similar movies the user might enjoy.
 - **Algorithmic Recommendations:** Utilize advanced algorithms to provide tailored movie suggestions for each user.
 
-## Database Schema
+## Relationships
 
-The application's data structure is organized into three main entities: Users, Movies, and Reviews.
+The Movie Rating App database consists of three main tables: Users, Movies, and Reviews. These tables are interconnected to establish meaningful relationships between the entities.
+
+### Users to Reviews (One-to-Many)
+- Each user can write multiple reviews.
+- Each review is associated with one user.
+
+### Movies to Reviews (One-to-Many)
+- Each movie can have multiple reviews.
+- Each review is associated with one movie.
+
+#### Entity Relationship Diagram
+
+The following diagram illustrates the relationships between the database tables:
+
+![Movie_Rating_DB](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/c10995ce-9e8d-4fcb-ad45-df261278bd19)
+
+
 
 ### Users
 - Stores information about registered users, including username, email, and role.
@@ -66,15 +82,6 @@ The application exposes a set of RESTful endpoints to interact with the system. 
 - **DELETE /user/remove/{id}:** Delete a user from the system.
 - **POST /user/add:** Register a new user in the system.
 - **PUT /user/update/{id}:** Update details of an existing user.
-
-## Getting Started
-
-To get started with the Movie Rating App, follow these steps:
-1. Clone the repository from GitHub.
-2. Install dependencies using your preferred package manager.
-3. Set up the database according to the provided schema.
-4. Configure environment variables for database connection and other settings.
-5. Run the application and start exploring its features.
 
 ## Conclusion
 

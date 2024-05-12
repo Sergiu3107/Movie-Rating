@@ -20,23 +20,31 @@ public class UserController {
     }
 
     /**
-     * HTTP method: GET, for getting all the users
-     * @return a list of users
+     * Retrieves all users.
+     *
+     * @return A list of all users.
      */
     @GetMapping("/show/all")
     public List<User> showAllUsers(){
         return userService.getAllUsers();
     }
 
+    /**
+     * Retrieves a user by its ID.
+     *
+     * @param id The ID of the user to retrieve.
+     * @return The user with the specified ID.
+     */
     @GetMapping("/show/{id}")
     public  User showUser(@PathVariable("id") int id){
         return userService.getUser(id);
     }
 
     /**
-     * HTTP method: DETELE, for deleting the user with a certain id
-     * @param id
-     * @return
+     * Deletes a user by its ID.
+     *
+     * @param id The ID of the user to delete.
+     * @return true if the user was successfully deleted, false otherwise.
      */
     @DeleteMapping("/remove/{id}")
     public boolean removeUser(@PathVariable("id") Integer id){
@@ -44,8 +52,9 @@ public class UserController {
     }
 
     /**
-     * HTTP method: POST, for adding a new user
-     * @param user
+     * Adds a new user.
+     *
+     * @param user The user object to add.
      */
     @PostMapping("/add")
     public void addUser(@RequestBody User user){
@@ -53,13 +62,14 @@ public class UserController {
     }
 
     /**
-     * HTTP method: PUT, for updating a user by id
-     * @param id
-     * @param user
+     * Updates a user with the specified ID.
+     *
+     * @param id   The ID of the user to update.
+     * @param user The updated user object.
      */
     @PutMapping("/update/{id}")
     public void updateUser(@PathVariable("id") Integer id,
-                            @RequestBody User user){
+                           @RequestBody User user){
         userService.putUser(id, user);
     }
 }

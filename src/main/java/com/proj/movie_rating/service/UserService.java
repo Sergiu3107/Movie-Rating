@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Connection to the database's table: User
+ * Service class for managing operations related to the 'User' entity in the database.
  */
 @Service
 public class UserService implements UserServiceContract {
@@ -20,21 +20,29 @@ public class UserService implements UserServiceContract {
     }
 
     /**
-     * Provide a list of all the users
-     * @return list of users
+     * Retrieves a list of all users.
+     *
+     * @return A list of all users.
      */
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
 
+    /**
+     * Retrieves a user by its ID.
+     *
+     * @param id The ID of the user to retrieve.
+     * @return The user with the specified ID, or null if not found.
+     */
     public User getUser(int id){
         return userRepository.findById(id).orElse(null);
     }
 
     /**
-     * Delete the user by id, if it exists
-     * @param id
-     * @return true if user with id is available, else false
+     * Deletes a user by its ID, if it exists.
+     *
+     * @param id The ID of the user to delete.
+     * @return true if the user was successfully deleted, false otherwise.
      */
     public boolean deleteAUser(Integer id){
         if(userRepository.existsById(id)) {
@@ -45,18 +53,20 @@ public class UserService implements UserServiceContract {
     }
 
     /**
-     * Insert a new user
-     * @param user
+     * Inserts a new user.
+     *
+     * @param user The user object to insert.
      */
     public void postUser(User user) {
         userRepository.save(user);
     }
 
     /**
-     * Modify the user with a certain id, by releaseYear and rating, if it exists
-     * @param id
-     * @param user
-     * @return
+     * Modifies the user with the specified ID by updating its username and password, if it exists.
+     *
+     * @param id   The ID of the user to update.
+     * @param user The updated user object.
+     * @return true if the user was successfully updated, false otherwise.
      */
     public boolean putUser(Integer id, User user) {
         if(userRepository.existsById(id)) {

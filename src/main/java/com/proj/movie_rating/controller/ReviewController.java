@@ -20,25 +20,31 @@ public class ReviewController {
     }
 
     /**
-     * HTTP method: GET, for getting all the movies
+     * Retrieves all reviews.
      *
-     * @return a list of movies
+     * @return A list of all reviews.
      */
     @GetMapping("/show/all")
     public List<Review> showAllReviews() {
         return reviewService.getAllReviews();
     }
 
+    /**
+     * Retrieves a review by its ID.
+     *
+     * @param id The ID of the review to retrieve.
+     * @return The review with the specified ID.
+     */
     @GetMapping("/show/{id}")
     public Review showReview(@PathVariable("id") int id) {
         return reviewService.getReview(id);
     }
 
     /**
-     * HTTP method: DETELE, for deleting the review with a certain id
+     * Deletes a review by its ID.
      *
-     * @param id
-     * @return
+     * @param id The ID of the review to delete.
+     * @return true if the review was successfully deleted, false otherwise.
      */
     @DeleteMapping("/remove/{id}")
     public boolean removeReview(@PathVariable("id") Integer id) {
@@ -46,21 +52,22 @@ public class ReviewController {
     }
 
     /**
-     * HTTP method: POST, for adding a new review
+     * Adds a new review.
      *
-     * @param review
+     * @param review The review object to add.
      */
     @PostMapping("/add")
     public void addReview(@RequestBody Review review) {
+        // Add the review and register the user as an observer
         reviewService.postReview(review);
         review.registerObserver(review.getUser());
     }
 
     /**
-     * HTTP method: PUT, for updating a review by id
+     * Updates a review with the specified ID.
      *
-     * @param id
-     * @param review
+     * @param id     The ID of the review to update.
+     * @param review The updated review object.
      */
     @PutMapping("/update/{id}")
     public void updateReview(@PathVariable("id") Integer id,
@@ -69,13 +76,13 @@ public class ReviewController {
     }
 
     /**
-     * HTTP method: PUT, for updating the number of likes of the review
+     * Increases the number of likes for a review.
      *
-     * @param id
+     * @param id The ID of the review to like.
      */
     @PutMapping("/like/{id}")
     public void likeReview(@PathVariable("id") Integer id) {
-
+        // Increase the number of likes for the specified review
         Review review = reviewService.getReview(id);
         if (review != null) {
             review.likeReview();

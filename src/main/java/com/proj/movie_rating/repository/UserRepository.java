@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * User data manipulation from database
+ * Repository interface for performing CRUD operations on User entities in the database.
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {

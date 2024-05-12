@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Connection to the database's table: Movie
+ * Service class for managing operations related to the 'Movie' entity in the database.
  */
 @Service
 public class MovieService implements MovieServiceContract {
@@ -20,21 +20,29 @@ public class MovieService implements MovieServiceContract {
     }
 
     /**
-     * Provide a list of all the movies
-     * @return list of movies
+     * Retrieves a list of all movies.
+     *
+     * @return A list of all movies.
      */
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
     }
 
+    /**
+     * Retrieves a movie by its ID.
+     *
+     * @param id The ID of the movie to retrieve.
+     * @return The movie with the specified ID, or null if not found.
+     */
     public Movie getMovie(int id){
         return movieRepository.findById(id).orElse(null);
     }
 
     /**
-     * Delete the movie by id, if it exists
-     * @param id
-     * @return true if movie with id is available, else false
+     * Deletes a movie by its ID, if it exists.
+     *
+     * @param id The ID of the movie to delete.
+     * @return true if the movie was successfully deleted, false otherwise.
      */
     public boolean deleteAMovie(Integer id){
         if(movieRepository.existsById(id)) {
@@ -45,18 +53,20 @@ public class MovieService implements MovieServiceContract {
     }
 
     /**
-     * Insert a new movie
-     * @param movie
+     * Inserts a new movie.
+     *
+     * @param movie The movie object to insert.
      */
     public void postMovie(Movie movie) {
         movieRepository.save(movie);
     }
 
     /**
-     * Modify the movie with a certain id, by releaseYear and rating, if it exists
-     * @param id
-     * @param movie
-     * @return
+     * Modifies the movie with the specified ID by updating its release year and rating, if it exists.
+     *
+     * @param id    The ID of the movie to update.
+     * @param movie The updated movie object.
+     * @return true if the movie was successfully updated, false otherwise.
      */
     public boolean putMovie(Integer id, Movie movie) {
         if(movieRepository.existsById(id)) {

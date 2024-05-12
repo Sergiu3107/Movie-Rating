@@ -1,12 +1,12 @@
 package com.proj.movie_rating.observer;
 
 /**
- * Observer Interface
+ * Interface for objects that observe changes in observable objects.
  */
 public interface Observer {
 
     /**
-     * called when the observer is notified by Observable
+     * Called when the observer is notified by an Observable object.
      */
     void update();
 }

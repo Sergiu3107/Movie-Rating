@@ -20,23 +20,31 @@ public class MovieController {
     }
 
     /**
-     * HTTP method: GET, for getting all the movies
-     * @return a list of movies
+     * Retrieves all movies.
+     *
+     * @return A list of all movies.
      */
     @GetMapping("/show/all")
     public List<Movie> showAllMovies(){
         return movieService.getAllMovies();
     }
 
+    /**
+     * Retrieves a movie by its ID.
+     *
+     * @param id The ID of the movie to retrieve.
+     * @return The movie with the specified ID.
+     */
     @GetMapping("/show/{id}")
     public  Movie showMovie(@PathVariable("id") int id){
         return movieService.getMovie(id);
     }
 
     /**
-     * HTTP method: DETELE, for deleting the movie with a certain id
-     * @param id
-     * @return
+     * Deletes a movie by its ID.
+     *
+     * @param id The ID of the movie to delete.
+     * @return true if the movie was successfully deleted, false otherwise.
      */
     @DeleteMapping("/remove/{id}")
     public boolean removeMovie(@PathVariable("id") Integer id){
@@ -44,8 +52,9 @@ public class MovieController {
     }
 
     /**
-     * HTTP method: POST, for adding a new movie
-     * @param movie
+     * Adds a new movie.
+     *
+     * @param movie The movie object to add.
      */
     @PostMapping("/add")
     public void addMovie(@RequestBody Movie movie){
@@ -53,9 +62,10 @@ public class MovieController {
     }
 
     /**
-     * HTTP method: PUT, for updating a movie by id
-     * @param id
-     * @param movie
+     * Updates a movie with the specified ID.
+     *
+     * @param id The ID of the movie to update.
+     * @param movie The updated movie object.
      */
     @PutMapping("/update/{id}")
     public void updateMovie(@PathVariable("id") Integer id,

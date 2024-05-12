@@ -1,24 +1,26 @@
 package com.proj.movie_rating.observer;
 
 /**
- * Observable Interface
+ * Interface for objects that can be observed by observers.
  */
 public interface Observable {
 
     /**
-     * for adding Observers
-     * @param observer
+     * Registers an observer to receive updates from this observable object.
+     *
+     * @param observer The observer to register.
      */
     void registerObserver(Observer observer);
 
     /**
-     * for removing Observers
-     * @param observer
+     * Removes an observer from the list of observers.
+     *
+     * @param observer The observer to remove.
      */
     void removeObserver(Observer observer);
 
     /**
-     * notify all the Observers
+     * Notifies all registered observers about changes in this observable object.
      */
     void notifyObservers();
 }

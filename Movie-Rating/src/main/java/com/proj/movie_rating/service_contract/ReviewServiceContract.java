@@ -8,6 +8,8 @@ import java.util.List;
 public interface ReviewServiceContract {
 
     public List<Review> getAllReviews();
+
+    public List<Review> getAllReviewsByMovie(int id);
     public Review getReview(int id);
     public boolean deleteAReview(Integer id);
     public void postReview(Review review);

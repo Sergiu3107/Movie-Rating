@@ -31,7 +31,7 @@ public class UserServiceTest {
         User user = new User(1, "user1", "pass1", "this1@gmail.com", "regular");
         when(userRepoMock.findById(1)).thenReturn(Optional.of(user));
 
-        User result = userService.getUser(1);
+        User result = userService.getUserById(1);
 
         assertEquals(result, user);
         verify(userRepoMock).findById(1);
@@ -103,7 +103,7 @@ public class UserServiceTest {
         User updatedUser = new User(1, "updatedUser", "updatedPassword", "updated@example.com", "user");
         userService.putUser(1, updatedUser);
 
-        User user = userService.getUser(1);
+        User user = userService.getUserById(1);
 
         assertEquals(user.getUsername(), updatedUser.getUsername());
     }
@@ -117,7 +117,7 @@ public class UserServiceTest {
         User updatedUser = new User(1, "updatedUser", "updatedPassword", "updated@example.com", "user");
         userService.putUser(1, updatedUser);
 
-        User user = userService.getUser(1);
+        User user = userService.getUserById(1);
 
         assertEquals(user.getPassword(), updatedUser.getPassword());
     }

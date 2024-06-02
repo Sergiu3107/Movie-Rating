@@ -7,7 +7,8 @@ import java.util.List;
 public interface UserServiceContract {
 
     public List<User> getAllUsers();
-    public User getUser(int id);
+    public User getUserById(int id);
+    public User getUserByUsername(String username);
     public boolean deleteAUser(Integer id);
     public void postUser(User user);
     public boolean putUser(Integer id, User user);

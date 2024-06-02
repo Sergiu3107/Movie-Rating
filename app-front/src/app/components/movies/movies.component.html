@@ -1,0 +1,43 @@
+
+
+<section class="py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-5">
+      @for (movie of movies; track movie) {
+        <ng-template #popContent>
+          <div class="popover-content">
+            <span class="movie-title">{{ movie.title }}</span> <div class="release-year">({{ movie.releaseYear }})</div>
+          </div>
+        </ng-template>
+
+
+        <div class="col">
+          <div class="movie-card card shadow-md">
+            <a
+              [ngbPopover]="popContent"
+              triggers="mouseenter:mouseleave"
+              placement="bottom"
+              class="bg-secondary" routerLink="/movie/{{ movie.id }}">
+              <img class="card-img"
+                   src="../../../assets/images/{{ movie.image }}"
+                   alt="{{ movie.title }}"
+                   width="70%" height="70%">
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+<footer class="bg-dark shadow-lg">
+  <div class="container py-5">
+    <h2 class="quote text-white d-flex justify-content-center align-items-center"> `` If you want a happy ending,
+      that depends, of course, on where you stop your story. ``
+    </h2>
+    <h3 class="author mt-4 text-white d-flex justify-content-center align-items-center"> Orson Welles </h3>
+    <div class="container text-white d-inline-flex">
+      <div class="bi-c-circle me-2"></div>
+      <div>2024-3107</div>
+    </div>
+  </div>
+</footer>

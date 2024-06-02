@@ -36,9 +36,20 @@ public class ReviewController {
      * @param id The ID of the review to retrieve.
      * @return The review with the specified ID.
      */
-    @GetMapping("/show/{id}")
+    @GetMapping("/show/by_id/{id}")
     public Review showReview(@PathVariable("id") int id) {
         return reviewService.getReview(id);
+    }
+
+    /**
+     * Retrieves a review by its ID.
+     *
+     * @param id The ID of the review to retrieve.
+     * @return The review with the specified ID.
+     */
+    @GetMapping("/show/all/by_movie/{id}")
+    public List<Review> showAllReviewByMovie(@PathVariable("id") int id) {
+        return reviewService.getAllReviewsByMovie(id);
     }
 
     /**

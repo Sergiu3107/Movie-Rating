@@ -24,7 +24,7 @@ public class UserService implements UserServiceContract {
      *
      * @return A list of all users.
      */
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
@@ -34,8 +34,18 @@ public class UserService implements UserServiceContract {
      * @param id The ID of the user to retrieve.
      * @return The user with the specified ID, or null if not found.
      */
-    public User getUser(int id){
+    public User getUserById(int id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Retrieves a user by its username.
+     *
+     * @param username The username of the user to retrieve.
+     * @return The user with the specified username, or null if not found.
+     */
+    public User getUserByUsername(String username) {
+        return (User) userRepository.findByUsername(username).orElse(null);
     }
 
     /**
@@ -44,8 +54,8 @@ public class UserService implements UserServiceContract {
      * @param id The ID of the user to delete.
      * @return true if the user was successfully deleted, false otherwise.
      */
-    public boolean deleteAUser(Integer id){
-        if(userRepository.existsById(id)) {
+    public boolean deleteAUser(Integer id) {
+        if (userRepository.existsById(id)) {
             userRepository.deleteById(id);
             return true;
         }
@@ -69,8 +79,8 @@ public class UserService implements UserServiceContract {
      * @return true if the user was successfully updated, false otherwise.
      */
     public boolean putUser(Integer id, User user) {
-        if(userRepository.existsById(id)) {
-            User current =  userRepository.findById(id).get();
+        if (userRepository.existsById(id)) {
+            User current = userRepository.findById(id).get();
             current.setUsername(user.getUsername());
             current.setPassword(user.getPassword());
             userRepository.save(current);

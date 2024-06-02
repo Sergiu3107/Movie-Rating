@@ -1,0 +1,17 @@
+.user-icon {
+  font-size: 2rem;
+}
+
+.likes-icon {
+  font-size: 1rem;
+}
+
+.text-aux {
+  font-family: Outfit, sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.user-col {
+  background-color: rgba(0, 0, 0, 0.15);
+}

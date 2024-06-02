@@ -1,0 +1,60 @@
+section {
+  background-color: rgba(33, 37, 41, 0.93);
+}
+
+.movie-title {
+  font-family: Libre Bodoni, serif;
+  font-weight: 500;
+  font-size: 6vh;
+}
+
+.movie-top {
+  font-family: Outfit, sans-serif;
+}
+
+.by {
+  font-weight: 140;
+  font-size: 4vh;
+}
+
+.movie-dir {
+  font-weight: 400;
+  font-size: 4vh;
+}
+
+.movie-desc {
+  font-weight: 200;
+  font-size: 3vh;
+}
+
+.movie-year {
+  font-size: 2.5vh;
+}
+
+.movie-rating {
+  font-family: Outfit, sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+hr {
+  height: 10px;
+  color: white;
+}
+
+i {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding-right: 0.1rem;
+  color: #ffffff;
+}
+
+.filled {
+  color: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+

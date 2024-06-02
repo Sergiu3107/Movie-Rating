@@ -1,0 +1,33 @@
+<ng-template #t let-fill="fill">
+  <i class="me-2 bi bi-star">
+    @if (fill > 0) {
+      <i class="bi bi-star-fill filled" [style.width.%]="fill"></i>
+    }
+  </i>
+</ng-template>
+<app-navbar></app-navbar>
+<section class="bg-dark p-5">
+  <div class="d-flex">
+    <div style="width: 70rem" class="container">
+      <div class="movie-top d-flex align-items-baseline">
+        <div class="movie-title text-white me-2"> {{ movie?.title }}</div>
+        <div class="movie-year text-white me-4"> ⌞{{ movie?.releaseYear }}⌝</div>
+        <div class="by text-white me-2"> Directed by</div>
+        <div class="movie-dir text-white"> {{ movie?.director }}</div>
+      </div>
+      <div class="movie-rating d-flex align-items-center">
+        <ngb-rating [(rate)]="rating" [starTemplate]="t" [readonly]="true" [max]="5" [ariaValueText]="ariaValueText"/>
+      </div>
+      <hr>
+      <div class="d-flex">
+        <img class="border me-5" src="../../../assets/images/{{ movie?.image }}" alt="{{ movie?.title }}" width="28%"
+             height="28%">
+        <div class="container">
+          <div class="movie-desc text-white"> {{ movie?.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-reviews></app-reviews>
+  <app-post-review></app-post-review>
+</section>

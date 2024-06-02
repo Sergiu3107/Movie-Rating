@@ -1,0 +1,36 @@
+<nav class="navbar bg-dark py-3 shadow">
+  <div class="d-flex align-items-center container-md">
+    <a class="navbar-brand text-white d-flex align-items-center" routerLink="/home">
+        <span class="container-logo">
+          <img src="../../../assets/logo.png" alt="mooovie" width="40" height="40">
+        </span>
+      <div class="logo-name ms-3">
+        STELL★R
+      </div>
+    </a>
+    <div class="d-flex align-items-center">
+      <form class="me-4">
+        <input class="form-control" type="search" placeholder="Search...">
+      </form>
+      <div ngbDropdown data-bs-theme="dark">
+        <button class="btn btn-warning" type="button" id="dropdownMenuButton" ngbDropdownToggle>
+          <a class="text-white">
+            <i class="bi bi-person-fill h4"></i>
+          </a>
+        </button>
+        <div ngbDropdownMenu>
+          @if (!logged) {
+            <a ngbDropdownItem routerLink="/log-in">Log in</a>
+          } @else {
+            <div ngbDropdownItem>{{ user?.username }}</div>
+            @if(user?.status === 'admin'){
+              <a class="text-danger" ngbDropdownItem>Admin Room</a>
+            }
+            <a routerLink="/log-in" class="btn btn-danger" ngbDropdownItem>Log out</a>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>

@@ -24,8 +24,19 @@ public class ReviewService implements ReviewServiceContract {
      *
      * @return A list of all reviews.
      */
-    public List<Review> getAllReviews(){
+    public List<Review> getAllReviews() {
         return reviewRepository.findAll();
+    }
+
+    /**
+     * Retrieves a list of all reviews
+     *
+     * @param id The ID of the movie
+     * @return A list of all reviews of a certain movie
+     */
+    @Override
+    public List<Review> getAllReviewsByMovie(int id) {
+        return this.reviewRepository.findAllByMovie(id);
     }
 
     /**
@@ -34,7 +45,7 @@ public class ReviewService implements ReviewServiceContract {
      * @param id The ID of the review to retrieve.
      * @return The review with the specified ID, or null if not found.
      */
-    public Review getReview(int id){
+    public Review getReview(int id) {
         return reviewRepository.findById(id).orElse(null);
     }
 
@@ -44,8 +55,8 @@ public class ReviewService implements ReviewServiceContract {
      * @param id The ID of the review to delete.
      * @return true if the review was successfully deleted, false otherwise.
      */
-    public boolean deleteAReview(Integer id){
-        if(reviewRepository.existsById(id)) {
+    public boolean deleteAReview(Integer id) {
+        if (reviewRepository.existsById(id)) {
             reviewRepository.deleteById(id);
             return true;
         }
@@ -69,8 +80,8 @@ public class ReviewService implements ReviewServiceContract {
      * @return true if the review was successfully updated, false otherwise.
      */
     public boolean putReview(Integer id, Review review) {
-        if(reviewRepository.existsById(id)) {
-            Review current =  reviewRepository.findById(id).get();
+        if (reviewRepository.existsById(id)) {
+            Review current = reviewRepository.findById(id).get();
             current.setReview(review.getReview());
             current.setRating(review.getRating());
             reviewRepository.save(current);

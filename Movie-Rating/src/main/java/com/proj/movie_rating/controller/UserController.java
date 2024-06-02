@@ -36,9 +36,20 @@ public class UserController {
      * @param id The ID of the user to retrieve.
      * @return The user with the specified ID.
      */
-    @GetMapping("/show/{id}")
-    public  User showUser(@PathVariable("id") int id){
-        return userService.getUser(id);
+    @GetMapping("/show/by_id/{id}")
+    public  User showUserById(@PathVariable("id") int id){
+        return userService.getUserById(id);
+    }
+
+    /**
+     * Retrieves a user by its Username.
+     *
+     * @param username The username of the user to retrieve.
+     * @return The user with the specified username.
+     */
+    @GetMapping("/show/by_name/{username}")
+    public  User showUserByUsername(@PathVariable("username") String username){
+        return userService.getUserByUsername(username);
     }
 
     /**

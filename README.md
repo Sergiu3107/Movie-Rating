@@ -111,21 +111,27 @@ The front-end is organized into several Angular components, each responsible for
 
 #### Register Page
 For registering user must go through a set of validators for username, email, password and password confirmation.
+
 ![register](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/cd63254c-bd05-49bd-804a-9bd3e269e23f)
+
 #### Login Page
 Loging in can be made only if the user has been registered before.
+
 ![login](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/dadd45cf-4ac4-4910-995d-df2ce196d859)
 
 #### Movies List Page
 Grid of available movies. Can be clicked to follow a certain movie page.
+
 ![movie-list](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/956208e4-5948-4768-9a61-e15a72bf0861)
 
 #### Movie Page
 Movie page with the movie details and a list of reviews by user. Those can be deleted bt its own user only or by the admin.
+
 ![movie-details](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/9f0e8871-4999-4287-87cf-55e405f4eec5)
 
 #### Add Review
 User can add a review and rate the movie only if it's logged in.
+
 ![post_review](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/db2733ec-b110-45af-a64b-6a5053d6922d)
 
 ## Conclusion

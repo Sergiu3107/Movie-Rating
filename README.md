@@ -1,3 +1,4 @@
+
 # Movie Rating App Documentation
 
 ## Introduction
@@ -43,7 +44,11 @@ The following diagram illustrates the relationships between the database tables:
 
 ![Movie_Rating_DB](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/c10995ce-9e8d-4fcb-ad45-df261278bd19)
 
+#### UML Class Diagram
+![movie_rating](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/f439b991-459b-4ffb-b0fd-8b7db16a0188)
 
+#### Use Case Diagram
+![Untitled](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/f4189026-8282-46ed-bca8-aba481e189d4)
 
 ### Users
 - Stores information about registered users, including username, email, and role.
@@ -82,6 +87,46 @@ The application exposes a set of RESTful endpoints to interact with the system. 
 - **DELETE /user/remove/{id}:** Delete a user from the system.
 - **POST /user/add:** Register a new user in the system.
 - **PUT /user/update/{id}:** Update details of an existing user.
+
+## Front-end
+#### Technologies
+- Angular 17
+- Bootstrap 5
+- ngBootstrap 16
+
+### Angular v17 Implementation:
+
+Angular v17 is the core framework used to develop the Movie Rating App's front-end. It provides a powerful set of tools and features for building dynamic single-page applications (SPAs) with a rich user interface.
+
+#### Components:
+
+The front-end is organized into several Angular components, each responsible for rendering a specific part of the user interface and encapsulating its behavior. Here's a breakdown of key components and their functionalities:
+
+-   **Home Component:** This component serves as the landing page of the application. It displays a navigation bar and a list of movies available for browsing. Users can click on a movie to view its details and reviews.
+-   **Login Component:** Users can log in to their accounts using this component. It provides input fields for username and password, along with validation mechanisms to ensure data integrity.
+-   **Movie Page Component:** When users click on a movie from the home page, they are directed to the movie page component. This component renders detailed information about the selected movie, including its title, release year, director, description, and user reviews.
+-   **Reviews Component:** This component displays user-generated reviews for a particular movie. It provides a platform for users to share their opinions and ratings, facilitating community interaction and engagement.
+-   **Post Review Component:** Users can post their reviews for a movie using this component. It includes input fields for text comments and star ratings, allowing users to express their thoughts and preferences.
+-   **Signup Component:** New users can register for an account using this component. It collects necessary information such as username, email, and password, guiding users through the registration process.
+
+#### Register Page
+For registering user must go through a set of validators for username, email, password and password confirmation.
+![register](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/cd63254c-bd05-49bd-804a-9bd3e269e23f)
+#### Login Page
+Loging in can be made only if the user has been registered before.
+![login](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/dadd45cf-4ac4-4910-995d-df2ce196d859)
+
+#### Movies List Page
+Grid of available movies. Can be clicked to follow a certain movie page.
+![movie-list](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/956208e4-5948-4768-9a61-e15a72bf0861)
+
+#### Movie Page
+Movie page with the movie details and a list of reviews by user. Those can be deleted bt its own user only or by the admin.
+![movie-details](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/9f0e8871-4999-4287-87cf-55e405f4eec5)
+
+#### Add Review
+User can add a review and rate the movie only if it's logged in.
+![post_review](https://github.com/Sergiu3107/Movie-Rating/assets/62149434/db2733ec-b110-45af-a64b-6a5053d6922d)
 
 ## Conclusion
 

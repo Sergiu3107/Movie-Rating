@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ReviewService} from "../../services/review.service";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Review} from '../../models/review';
@@ -37,7 +37,8 @@ export class PostReviewComponent implements OnInit {
               private reviewService: ReviewService,
               private movieService: MovieService,
               private formBuilder: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
     this.reviewForm = this.formBuilder.group({
       reviewText: new FormControl('', Validators.minLength(10)),
     })
@@ -45,7 +46,7 @@ export class PostReviewComponent implements OnInit {
 
   ngOnInit() {
     this.idMovie = this.route.snapshot.params['id'];
-    this.user = this.authService.getCurrentUser();
+    this.user = this.authService.getCurrentUser() ?? undefined;
     this.isLoggedIn = this.authService.getIsLoggedIn();
 
     this.movieService.getById(this.idMovie).subscribe({
@@ -77,7 +78,14 @@ export class PostReviewComponent implements OnInit {
       movie: this.movie
     }
 
-    console.log(data);
+    this.reviewService.post(data).subscribe({
+      next: (res) => {
+        this.router.navigate([this.router.url])
+          .then(() => {
+            window.location.reload();
+          });
+      }
+    });
 
   }
 }

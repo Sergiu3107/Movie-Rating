@@ -1,12 +1,12 @@
 <ng-template #t let-fill="fill">
   <i class="me-2 bi bi-star">
     @if (fill > 0) {
-      <i class="bi bi-star-fill filled" [style.width.%]="fill"></i>
+      <i class="review-star bi bi-star-fill filled" [style.width.%]="fill"></i>
     }
   </i>
 </ng-template>
 <app-navbar></app-navbar>
-<section class="bg-dark p-5">
+<section class="p-5">
   <div class="d-flex">
     <div style="width: 70rem" class="container">
       <div class="movie-top d-flex align-items-baseline">
@@ -31,3 +31,15 @@
   <app-reviews></app-reviews>
   <app-post-review></app-post-review>
 </section>
+<footer class="bg-dark shadow-lg">
+  <div class="container py-5">
+    <h2 class="quote text-white d-flex justify-content-center align-items-center"> `` If you want a happy ending,
+      that depends, of course, on where you stop your story. ``
+    </h2>
+    <h3 class="author mt-4 text-white d-flex justify-content-center align-items-center"> Orson Welles </h3>
+    <div class="container text-white d-inline-flex">
+      <div class="bi-c-circle me-2"></div>
+      <div>2024-3107</div>
+    </div>
+  </div>
+</footer>

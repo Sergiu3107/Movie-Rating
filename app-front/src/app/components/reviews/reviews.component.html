@@ -1,3 +1,10 @@
+<ng-template #t let-fill="fill">
+  <i class="me-2 bi bi-star">
+    @if (fill > 0) {
+      <i class="bi bi-star-fill filled" [style.width.%]="fill"></i>
+    }
+  </i>
+</ng-template>
 <div class="text-white container-sm mt-5">
   <div style="width: 70rem" class="container" data-bs-theme="dark">
     <div class="text-aux text-white mb-4">"What do others think about the movie?"
@@ -9,6 +16,7 @@
           <div class="user-col d-flex justify-content-center align-items-center flex-column p-1">
             <div class="user-icon"><i class="bi bi-person-circle"></i></div>
             <h5>{{ review.user?.username }}</h5>
+            <div>Rated: {{ review.rating }} <i class="bi bi-star-fill"></i></div>
           </div>
         </div>
         <div class="col-8">
@@ -16,11 +24,14 @@
             {{ review.review }}
           </div>
         </div>
-        <div class="col-2 d-flex justify-content-center align-items-center flex-column">
-          <div>
-            <div class="likes-icon"><i class="bi bi-heart"></i></div>
-            <h6>{{ review.likes }}</h6>
-          </div>
+        <div class="col-1 d-flex justify-content-center align-items-center flex-column">
+          <div class="likes-icon"><i class="bi bi-heart"></i></div>
+          <h6>{{ review.likes }}</h6>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-center flex-column">
+          @if (isAdmin || review.user?.username === user?.username) {
+            <div (click)="deleteReview(review.id)" class="likes-icon"><i class="bi bi-trash"></i></div>
+          }
         </div>
       </div>
       <hr>

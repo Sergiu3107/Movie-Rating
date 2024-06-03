@@ -9,9 +9,6 @@
       </div>
     </a>
     <div class="d-flex align-items-center">
-      <form class="me-4">
-        <input class="form-control" type="search" placeholder="Search...">
-      </form>
       <div ngbDropdown data-bs-theme="dark">
         <button class="btn btn-warning" type="button" id="dropdownMenuButton" ngbDropdownToggle>
           <a class="text-white">
@@ -22,11 +19,12 @@
           @if (!logged) {
             <a ngbDropdownItem routerLink="/log-in">Log in</a>
           } @else {
-            <div ngbDropdownItem>{{ user?.username }}</div>
+            <div style="font-weight: 600" ngbDropdownItem>{{ user?.username }}</div>
+            <div class="dropdown-divider"></div>
             @if(user?.status === 'admin'){
-              <a class="text-danger" ngbDropdownItem>Admin Room</a>
+              <a class="text-danger" ngbDropdownItem>Admin</a>
             }
-            <a routerLink="/log-in" class="btn btn-danger" ngbDropdownItem>Log out</a>
+            <a (click)="logout()" routerLink="/log-in" class="btn btn-danger" ngbDropdownItem>Log out</a>
           }
         </div>
       </div>

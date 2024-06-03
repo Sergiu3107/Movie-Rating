@@ -20,4 +20,8 @@ export class ReviewService {
   post(data: any): Observable<any> {
     return this.http.post(`${baseUrl}/add`, data);
   }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/remove/${id}`);
+  }
 }

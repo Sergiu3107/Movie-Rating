@@ -1,16 +1,13 @@
-
-
 <section class="py-5">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-5">
       @for (movie of movies; track movie) {
         <ng-template #popContent>
           <div class="popover-content">
-            <span class="movie-title">{{ movie.title }}</span> <div class="release-year">({{ movie.releaseYear }})</div>
+            <span class="movie-title">{{ movie.title }}</span>
+            <div class="release-year">({{ movie.releaseYear }})</div>
           </div>
         </ng-template>
-
-
         <div class="col">
           <div class="movie-card card shadow-md">
             <a

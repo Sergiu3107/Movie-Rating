@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {UserService} from "../../services/user.service";
-import {User} from "../../models/user.model";
-import {AuthService} from "../../services/auth.service";
-import {NgClass} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from "@angular/router";
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { UserService } from "../../services/user.service";
+import { User } from "../../models/user.model";
+import { AuthService } from "../../services/auth.service";
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-log-in',
@@ -15,10 +15,9 @@ import {NgClass} from "@angular/common";
     NgClass,
   ],
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css'] // Corrected typo from 'styleUrl' to 'styleUrls'
+  styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-
   notAnUser = false;
   notMatchPass = false;
   submitted = false;
@@ -27,7 +26,6 @@ export class LogInComponent implements OnInit {
 
   constructor(private userService: UserService, private formBuilder: FormBuilder, private authService: AuthService,
               private router: Router) {
-
     this.logInForm = this.formBuilder.group({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
